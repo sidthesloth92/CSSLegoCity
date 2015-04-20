@@ -1,0 +1,194 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+.city_wrapper {
+    position: relative;
+    @include animation(sky-animation, infinite, 40s, alternate);
+    div {
+        position: absolute;
+    }
+    /*------------ STYLING FOR BUILDING TYPE ONE ---------------------*/
+    
+    .b1_window {
+        position: relative;
+        display: inline-block;
+        width: 80%;
+        height: 10%;
+        margin-left: 10%;
+        margin-top: 10%;
+        @include border-radius(2px); 
+        box-shadow: 0px 0px 2px 1px black;
+    }
+    /*------------ STYLING FOR BUILDING TYPE TWO ---------------------*/
+    
+    .b2_window {
+        position: relative;
+        display: inline-block;
+        width: 15%;
+        height: 7.5%;
+        margin: 10% 0%;
+        margin-left: 7.5%;
+
+        @include border-radius(2px); 
+        box-shadow: 0px 0px 2px 1px black;
+    }
+    /*------------ STYLING FOR BUILDING TYPE THREE ---------------------*/
+    
+    .building_3 > div {
+        background: black;
+    }
+    .b3_block_1 {
+        bottom: 80%;
+        height: 20%;
+        width: 2.5%;
+        margin-left: 55%;
+        border-top: 3px solid white;
+        box-sizing: border-box;
+    }
+    .b3_block_2 {
+        bottom: 70%;
+        height: 10%;
+        width: 40%;
+        margin-left: 30%;
+    }
+    .b3_block_3 {
+        bottom: 40%;
+        width: 60%;
+        height: 30%;
+        margin-left: 20%;
+    }
+    .b3_block_4 {
+        width: 80%;
+        height: 40%;
+        margin-left: 10%;
+        bottom: 0;
+    }
+    div[class^='b3_block'] > div {
+        position: relative;
+        display: inline-block;
+        background: white;
+        height: 10%;
+        width: 10%;
+    }
+    div[class^='b3_block'] > .b3_bl2_window {
+        margin: 20%;
+    }
+    div[class^='b3_block'] > .b3_bl3_window {
+        margin: 20%;
+    }
+    div[class^='b3_block'] > .b3_bl4_window {
+        margin: 11.5%;
+    }
+    /*------------ STYLING FOR CLOUD ---------------------*/
+    
+    .cloud {
+        > div {
+            display: inline-block;
+            @include linear-gradient(top, $cloud-from-color, $cloud-to-color);
+        }
+        .cloud_bubble_one {
+            width: 25%;
+            height: 50%;
+            border-radius: 50%;
+            top: 25%;
+            left: 25%;
+        }
+        .cloud_bubble_two {
+            width: 50%;
+            height: 100%;
+            border-radius: 50%;
+            right: 12.5%;
+        }
+        .cloud_rectangle {
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+        }
+    }
+    /*------------ STYLING FOR TREE ---------------------*/
+    
+    .bubble_tree {
+        .bt_trunk {
+            width: 10%;
+            height: 70%;
+            @include linear-gradient(top, $trunk-from-color, $trunk-to-color);
+            bottom: 0;
+            left: 45%;
+        }
+        div[class^='bt_bubble'] {
+            @include linear-gradient(top, $tree-from-color, $tree-to-color);
+            border-radius: 50%;
+        }
+        .bt_bubble_one {
+            width: 40%;
+            height: 40%;
+            left: 10%;
+            top: 15%;
+        }
+        .bt_bubble_two {
+            width: 60%;
+            height: 60%;
+            right: 0;
+        }
+        .bt_bubble_three {
+            width: 30%;
+            height: 30%;
+            left: 30%;
+        }
+    }
+    .bush {
+        overflow: hidden;
+        div[class^='bush_bubble'] {
+            background: green;
+        }
+        .bush_bubble_one {
+            width: 20%;
+            height: 40%;
+            border-radius: 50%;
+            bottom: 20%;
+            left: 40%
+        }
+        .bush_bubble_two {
+            width: 45%;
+            height: 90%;
+            border-radius: 50%;
+            bottom: -50%;
+            left: 15%;
+        }
+        .bush_bubble_three {
+            width: 50%;
+            height: 100%;
+            border-radius: 50%;
+            bottom: -50%;
+            right: 0;
+        }
+    }
+}
+
+
+@-webkit-keyframes sky-animation {
+    0% {
+        background: #66E0FF;
+    }
+    15% {
+        background: #33D6FF;
+    }
+    30% {
+        background: #00CCFF;
+    }
+    45% {
+        background: #00B8E6;
+    }
+    60% {
+        background: #008FB2;
+    }
+    75% {
+        background: #006680;
+    }
+    90% {
+        background: #003D4C;
+    }
+    100% {
+        background: #00141A;
+    }
+}

@@ -1,0 +1,42 @@
+@mixin linear-gradient($direction, $fromColor, $toColor) {
+    background-color: $fromColor;
+    background: -webkit-linear-gradient($direction, $fromColor, $toColor);
+    background: -moz-linear-gradient($direction, $fromColor, $toColor);
+    background: -ms-linear-gradient($direction, $fromColor, $toColor);
+    background: -o-linear-gradient($direction, $fromColor, $toColor);
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin animation($name, $iteration, $duration, $direction) {
+    -webkit-animation-name: $name;
+    -webkit-animation-iteration-count: $iteration;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-direction: $direction;
+
+    -moz-animation-name: $name;
+    -moz-animation-iteration-count: $iteration;
+    -moz-animation-duration: $duration;
+    -moz-animation-direction: $direction;
+
+    -ms-animation-name: $name;
+    -ms-animation-iteration-count: $iteration;
+    -ms-animation-duration: $duration;
+    -ms-animation-direction: $direction;
+
+    -o-animation-name: $name;
+    -o-animation-iteration-count: $iteration;
+    -o-animation-duration: $duration;
+    -o-animation-direction: $direction;
+
+    animation-name: $name;
+    animation-iteration-count: $iteration;
+    animation-duration: $duration;
+    animation-direction: $direction;
+}

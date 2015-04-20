@@ -1,0 +1,232 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.city_wrapper {
+  position: relative;
+  -webkit-animation-name: sky-animation;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 40s;
+  -webkit-animation-direction: alternate;
+  -moz-animation-name: sky-animation;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 40s;
+  -moz-animation-direction: alternate;
+  -ms-animation-name: sky-animation;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-duration: 40s;
+  -ms-animation-direction: alternate;
+  -o-animation-name: sky-animation;
+  -o-animation-iteration-count: infinite;
+  -o-animation-duration: 40s;
+  -o-animation-direction: alternate;
+  animation-name: sky-animation;
+  animation-iteration-count: infinite;
+  animation-duration: 40s;
+  animation-direction: alternate;
+  /*------------ STYLING FOR BUILDING TYPE ONE ---------------------*/
+  /*------------ STYLING FOR BUILDING TYPE TWO ---------------------*/
+  /*------------ STYLING FOR BUILDING TYPE THREE ---------------------*/
+  /*------------ STYLING FOR CLOUD ---------------------*/
+  /*------------ STYLING FOR TREE ---------------------*/ }
+  .city_wrapper div {
+    position: absolute; }
+  .city_wrapper .b1_window {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 10%;
+    margin-left: 10%;
+    margin-top: 10%;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px 1px black; }
+  .city_wrapper .b2_window {
+    position: relative;
+    display: inline-block;
+    width: 15%;
+    height: 7.5%;
+    margin: 10% 0%;
+    margin-left: 7.5%;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px 1px black; }
+  .city_wrapper .building_3 > div {
+    background: black; }
+  .city_wrapper .b3_block_1 {
+    bottom: 80%;
+    height: 20%;
+    width: 2.5%;
+    margin-left: 55%;
+    border-top: 3px solid white;
+    box-sizing: border-box; }
+  .city_wrapper .b3_block_2 {
+    bottom: 70%;
+    height: 10%;
+    width: 40%;
+    margin-left: 30%; }
+  .city_wrapper .b3_block_3 {
+    bottom: 40%;
+    width: 60%;
+    height: 30%;
+    margin-left: 20%; }
+  .city_wrapper .b3_block_4 {
+    width: 80%;
+    height: 40%;
+    margin-left: 10%;
+    bottom: 0; }
+  .city_wrapper div[class^='b3_block'] > div {
+    position: relative;
+    display: inline-block;
+    background: white;
+    height: 10%;
+    width: 10%; }
+  .city_wrapper div[class^='b3_block'] > .b3_bl2_window {
+    margin: 20%; }
+  .city_wrapper div[class^='b3_block'] > .b3_bl3_window {
+    margin: 20%; }
+  .city_wrapper div[class^='b3_block'] > .b3_bl4_window {
+    margin: 11.5%; }
+  .city_wrapper .cloud > div {
+    display: inline-block;
+    background-color: rgba(246, 246, 246, 0.94) 39%;
+    background: -webkit-linear-gradient(top, rgba(246, 246, 246, 0.94) 39%, #f6f6f6 47%);
+    background: -moz-linear-gradient(top, rgba(246, 246, 246, 0.94) 39%, #f6f6f6 47%);
+    background: -ms-linear-gradient(top, rgba(246, 246, 246, 0.94) 39%, #f6f6f6 47%);
+    background: -o-linear-gradient(top, rgba(246, 246, 246, 0.94) 39%, #f6f6f6 47%); }
+  .city_wrapper .cloud .cloud_bubble_one {
+    width: 25%;
+    height: 50%;
+    border-radius: 50%;
+    top: 25%;
+    left: 25%; }
+  .city_wrapper .cloud .cloud_bubble_two {
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    right: 12.5%; }
+  .city_wrapper .cloud .cloud_rectangle {
+    bottom: 0;
+    width: 100%;
+    height: 50%; }
+  .city_wrapper .bubble_tree .bt_trunk {
+    width: 10%;
+    height: 70%;
+    background-color: #a90329 0%;
+    background: -webkit-linear-gradient(top, #a90329 0%, #6d0019 100%);
+    background: -moz-linear-gradient(top, #a90329 0%, #6d0019 100%);
+    background: -ms-linear-gradient(top, #a90329 0%, #6d0019 100%);
+    background: -o-linear-gradient(top, #a90329 0%, #6d0019 100%);
+    bottom: 0;
+    left: 45%; }
+  .city_wrapper .bubble_tree div[class^='bt_bubble'] {
+    background-color: #08cc08 0%;
+    background: -webkit-linear-gradient(top, #08cc08 0%, #5df073 74%);
+    background: -moz-linear-gradient(top, #08cc08 0%, #5df073 74%);
+    background: -ms-linear-gradient(top, #08cc08 0%, #5df073 74%);
+    background: -o-linear-gradient(top, #08cc08 0%, #5df073 74%);
+    border-radius: 50%; }
+  .city_wrapper .bubble_tree .bt_bubble_one {
+    width: 40%;
+    height: 40%;
+    left: 10%;
+    top: 15%; }
+  .city_wrapper .bubble_tree .bt_bubble_two {
+    width: 60%;
+    height: 60%;
+    right: 0; }
+  .city_wrapper .bubble_tree .bt_bubble_three {
+    width: 30%;
+    height: 30%;
+    left: 30%; }
+  .city_wrapper .bush {
+    overflow: hidden; }
+    .city_wrapper .bush div[class^='bush_bubble'] {
+      background: green; }
+    .city_wrapper .bush .bush_bubble_one {
+      width: 20%;
+      height: 40%;
+      border-radius: 50%;
+      bottom: 20%;
+      left: 40%; }
+    .city_wrapper .bush .bush_bubble_two {
+      width: 45%;
+      height: 90%;
+      border-radius: 50%;
+      bottom: -50%;
+      left: 15%; }
+    .city_wrapper .bush .bush_bubble_three {
+      width: 50%;
+      height: 100%;
+      border-radius: 50%;
+      bottom: -50%;
+      right: 0; }
+
+@-webkit-keyframes sky-animation {
+  0% {
+    background: #66E0FF; }
+  15% {
+    background: #33D6FF; }
+  30% {
+    background: #00CCFF; }
+  45% {
+    background: #00B8E6; }
+  60% {
+    background: #008FB2; }
+  75% {
+    background: #006680; }
+  90% {
+    background: #003D4C; }
+  100% {
+    background: #00141A; } }
+
+/*# sourceMappingURL=main.css.map */
