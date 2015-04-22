@@ -1,4 +1,8 @@
 var cc = {
+    config: {
+        SUPPORTED_UNITS: ['px', '%'],
+        UNIT_FORMAT: /^\d+(px|%)/g
+    },
     city_wrapper: null,
     buildings: {},
     clouds: {},
@@ -121,33 +125,35 @@ var cc = {
         this.buildingCreators[type].call(this, id, height, bgColor, windowColor, fromLeft);
     },
     createCloud: function(id, width, top, left) {
-        var parsedWidth = window.parseInt(width);
-        var cloudWidth = (parsedWidth % 2) ? parsedWidth + 1 : parsedWidth;
 
-        var cloud = document.createElement('div');
-        var cloudBubbleOne = document.createElement('div');
-        var cloudBubbleTwo = document.createElement('div');
-        var cloudRectangle = document.createElement('div');
+        if (this.validateId(id, this.clouds)) {
+            var cloudWidth = this.parseInput(width);
+            var unit = this.getInputUnit(width);
 
-        cloud.id = id;
-        this.clouds[id] = cloud;
-        cloud.classList.add('cloud');
-        cloud.style.width = cloudWidth + 'px';
-        cloud.style.height = (cloudWidth / 2) + 'px';
-        cloud.style.top = top ? top : 0;
-        cloud.style.left = left ? left : 0;
+            var cloud = document.createElement('div');
+            var cloudBubbleOne = document.createElement('div');
+            var cloudBubbleTwo = document.createElement('div');
+            var cloudRectangle = document.createElement('div');
+
+            cloud.id = id;
+            this.clouds[id] = cloud;
+            cloud.classList.add('cloud');
+            cloud.style.width = cloudWidth + unit;
+            cloud.style.height = (cloudWidth / 2) + unit;
+            cloud.style.top = top ? top : 0;
+            cloud.style.left = left ? left : 0;
 
 
-        cloudBubbleOne.classList.add('cloud_bubble_one');
-        cloudBubbleTwo.classList.add('cloud_bubble_two');
-        cloudRectangle.classList.add('cloud_rectangle');
-        cloudRectangle.style.borderRadius = (cloudWidth / 8) + 'px';
+            cloudBubbleOne.classList.add('cloud_bubble_one');
+            cloudBubbleTwo.classList.add('cloud_bubble_two');
+            cloudRectangle.classList.add('cloud_rectangle');
+            
+            cloud.appendChild(cloudBubbleOne);
+            cloud.appendChild(cloudBubbleTwo);
+            cloud.appendChild(cloudRectangle);
 
-        cloud.appendChild(cloudBubbleOne);
-        cloud.appendChild(cloudBubbleTwo);
-        cloud.appendChild(cloudRectangle);
-
-        this.city_wrapper.appendChild(cloud);
+            this.city_wrapper.appendChild(cloud);
+        }
     },
     createTree: function(id, height, top, left, type) {
 
@@ -166,7 +172,7 @@ var cc = {
         tree.style.width = (treeHeight / 2) + 'px';
         tree.style.top = top ? top : 0;
         tree.style.left = left ? left : 0;
-	
+
         trunk.classList.add('bt_trunk');
         treeBubbleOne.classList.add('bt_bubble_one');
         treeBubbleTwo.classList.add('bt_bubble_two');
@@ -207,6 +213,46 @@ var cc = {
         bush.appendChild(bubbleThree);
 
         this.city_wrapper.appendChild(bush);
+    },
+    validateId: function(id, object) {
+        /* Checks to see whether any component is already created with the same id */
+        if (object && object[id]) {
+            console.error('The id ' + id + ' is already registered');
+            return false;
+        }
+        return true;
+    },
+    inputMatchesFormat: function(input, format) {
+        /* Checks whether the input parameter provided matches the provided format */
+
+        return (input && format && input.match(format)) ? true : false;
+    },
+    parseInput: function(input) {
+        /* Get the integer value from an input of the format XX% or XXpx and converts it into an even number */
+
+        if (this.inputMatchesFormat(input, this.config.UNIT_FORMAT)) {
+            var parsedInput = window.parseInt(input);
+            var finalInput = (finalInput % 2) ? parsedInput + 1 : parsedInput;
+            return finalInput;
+        } else {
+            throw "Given width/height " + input + " is not of a valid format";
+        }
+
+    },
+    getInputUnit: function(input) {
+        var unit;
+
+        if (this.inputMatchesFormat(input, this.config.UNIT_FORMAT)) {
+            for (var i = 0; i < this.config.SUPPORTED_UNITS.length; i++) {
+                if (input.indexOf(this.config.SUPPORTED_UNITS[i]) != -1) {
+                    unit = this.config.SUPPORTED_UNITS[i];
+                    break;
+                }
+            }
+            return unit;
+        } else {
+            throw "Given width/height " + input + " is not of a valid format";
+        }
     }
 };
 
@@ -214,9 +260,9 @@ cc.init();
 cc.createCity('100%', '100%');
 cc.createBuilding("building_one", '100px', "royalblue", "white", '200px', 'b1');
 cc.createBuilding("building_two", '200px', "darkgreen", "yellow", '300px', 'b2');
-cc.createBuilding("building_three", '400px', "black", "white", '100px', 'b3');
-//cc.createCloud('cloud_one', '200px', '20px', '30px');
-cc.createCloud('cloud_three', '100px', '20%', '30%');
+cc.createBuilding("building_two", '400px', "black", "white", '100px', 'b3');
+cc.createCloud('cloud_three', '200px', '20px', '30px');
+cc.createCloud('cloud_one]', '20%', '20%', '30%');
 cc.createTree('tree_one', '100px', 'one', '300px', '300px');
 cc.createTree('tree_three', '40%', '10px', '50px', 'bubble_tree_two');
 cc.createBush('bush_one', '100px', '200px', '300px');
