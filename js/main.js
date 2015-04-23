@@ -140,14 +140,13 @@ var cc = {
             cloud.classList.add('cloud');
             cloud.style.width = cloudWidth + unit;
             cloud.style.height = (cloudWidth / 2) + unit;
-            cloud.style.top = top ? top : 0;
-            cloud.style.left = left ? left : 0;
 
+            this.setPosition(cloud, top, '', '', left);
 
             cloudBubbleOne.classList.add('cloud_bubble_one');
             cloudBubbleTwo.classList.add('cloud_bubble_two');
             cloudRectangle.classList.add('cloud_rectangle');
-            
+
             cloud.appendChild(cloudBubbleOne);
             cloud.appendChild(cloudBubbleTwo);
             cloud.appendChild(cloudRectangle);
@@ -253,6 +252,13 @@ var cc = {
         } else {
             throw "Given width/height " + input + " is not of a valid format";
         }
+    },
+    setPosition: function(element, top, right, bottom, left) {
+        this.inputMatchesFormat(top, this.config.UNIT_FORMAT) ? element.style.top = top : top ? console.error('Given top: ' + top + ' value does not match required format.') : '';
+        this.inputMatchesFormat(right, this.config.UNIT_FORMAT) ? element.style.right = right : right ? console.error('Given right: ' + right + ' value does not match required format.') : '';
+        this.inputMatchesFormat(bottom, this.config.UNIT_FORMAT) ? element.style.bottom = bottom : bottom ? console.error('Given bottom: ' + bottom + ' value does not match required format.') : '';
+        this.inputMatchesFormat(left, this.config.UNIT_FORMAT) ? element.style.left = left : left ? console.error('Given left: ' + left + ' value does not match required format.') : '';
+
     }
 };
 
@@ -261,7 +267,7 @@ cc.createCity('100%', '100%');
 cc.createBuilding("building_one", '100px', "royalblue", "white", '200px', 'b1');
 cc.createBuilding("building_two", '200px', "darkgreen", "yellow", '300px', 'b2');
 cc.createBuilding("building_two", '400px', "black", "white", '100px', 'b3');
-cc.createCloud('cloud_three', '200px', '20px', '30px');
+cc.createCloud('cloud_three', '100px', '20px', '30px');
 cc.createCloud('cloud_one]', '20%', '20%', '30%');
 cc.createTree('tree_one', '100px', 'one', '300px', '300px');
 cc.createTree('tree_three', '40%', '10px', '50px', 'bubble_tree_two');
